@@ -1,0 +1,9 @@
+.root {
+    -fx-background-radius: 18 18 18 18;
+    -fx-border-radius: 18 18 18 18;
+    -fx-border-width:5;
+}
+
+#main {
+    -fx-background-color: transparent;
+}
