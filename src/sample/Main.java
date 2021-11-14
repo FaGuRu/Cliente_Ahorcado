@@ -23,6 +23,7 @@ public class Main extends Application {
         scene.getStylesheets().add(getClass().getResource("style.css").toString());
         stage.setScene(scene);
         stage.show();
+        stage.setX(800);
     }
 
 

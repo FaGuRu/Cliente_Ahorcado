@@ -41,7 +41,7 @@ public class Controller implements  Observer {
     private TextField portServer;
 
     @FXML
-    private TextArea log;
+    private Label log;
 
     @FXML
     private TextField txtEnviar;
@@ -61,7 +61,7 @@ public class Controller implements  Observer {
     void btnConectarOnMouseClicked(MouseEvent event) {
         try {
             socket = new Socket(ipServer.getText(), Integer.valueOf(portServer.getText()));
-            log.setText( "Creado");
+            log.setText( "CONECTADO");
             bufferDeSalida = new DataOutputStream(socket.getOutputStream());
             bufferDeSalida.flush();
 
@@ -120,7 +120,7 @@ public class Controller implements  Observer {
     }
     void verificarGano(){
         if(ahorcado.isWordFound()== true){
-            labelWin.setText("FELIICIDADES, GANASTE ERES TODO UN CRACK");
+            labelWin.setText("¡FELIICIDADES, GANASTE!");
             try {
                 bufferDeSalida.writeUTF("El Cliente  1 ha acertado la palabra");
                 bufferDeSalida.flush();
@@ -129,7 +129,7 @@ public class Controller implements  Observer {
                 e.printStackTrace();
             }
         }else{
-            labelWin.setText("MAS SUERTE A LA PROXIMA :((, LA PALABRA ERA: "+ ahorcado.getPalabraOculta());
+            labelWin.setText("MAS SUERTE PARA LA PROXIMA, LA PALABRA CORRECTA ERA: "+ ahorcado.getPalabraOculta());
             try {
                 bufferDeSalida.writeUTF("El Cliente  1 ha perdido");
                 bufferDeSalida.flush();

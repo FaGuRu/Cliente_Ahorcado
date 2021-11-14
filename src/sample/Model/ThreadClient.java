@@ -25,7 +25,7 @@ public class ThreadClient extends Observable implements Runnable {
             String st = "";
             do {
                 try {
-                    Thread.sleep(ThreadLocalRandom.current().nextLong(1000L)+100);
+                    Thread.sleep(ThreadLocalRandom.current().nextLong(1000L)+100); //Aquí aplicamos concurrencia al dormir nuestro Hilo que ejecuta el buffer de entrada de letras
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
