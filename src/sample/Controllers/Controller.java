@@ -92,15 +92,24 @@ public class Controller implements  Observer {
 
     @FXML
     void btnEnviarOnMouseClicked(MouseEvent event) {
-        if(ahorcado.isPlayAgain() && !ahorcado.isWordFound()){
+        if (ahorcado.isPlayAgain() && !ahorcado.isWordFound()) {
             ahorcado.verificarPalabra(txtEnviar.getText().charAt(0));
             numIntentos.setText(String.valueOf(ahorcado.getNumStrike()));
             labelPalabraOculta.setText(String.valueOf(ahorcado.imprimirProgreso()));
+            txtEnviar.clear();
+            if (ahorcado.isWordFound() == true) {
+                labelWin.setText("¡FELIICIDADES, GANASTE!");
+                try {
+                    bufferDeSalida.writeUTF("El Cliente  1 ha acertado la palabra");
+                    bufferDeSalida.flush();
 
-        }else{
-            verificarGano();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }if (ahorcado.getNumStrike() == 5){
+            verificarperdio();
         }
-
     }
 
     @Override
@@ -118,17 +127,8 @@ public class Controller implements  Observer {
         ahorcado.generarPalabra();
         labelPalabraOculta.setText(String.valueOf(ahorcado.imprimirProgreso()));
     }
-    void verificarGano(){
-        if(ahorcado.isWordFound()== true){
-            labelWin.setText("¡FELIICIDADES, GANASTE!");
-            try {
-                bufferDeSalida.writeUTF("El Cliente  1 ha acertado la palabra");
-                bufferDeSalida.flush();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }else{
+    void verificarperdio(){
+        if(ahorcado.isWordFound()== false){
             labelWin.setText("MAS SUERTE PARA LA PROXIMA, LA PALABRA CORRECTA ERA: "+ ahorcado.getPalabraOculta());
             try {
                 bufferDeSalida.writeUTF("El Cliente  1 ha perdido");
@@ -147,4 +147,5 @@ public class Controller implements  Observer {
             return false;
         }
     }
+
 }

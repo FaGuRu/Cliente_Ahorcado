@@ -33,7 +33,7 @@
          </font></Button>
         <Label fx:id="labelPalabraOculta" layoutX="224.0" layoutY="239.0" text=" ">
             <font>
-                <Font name="Segoe UI Semibold" size="24.0" />
+                <Font name="Segoe UI Semibold" size="30.0" />
             </font>
         </Label>
         <Label layoutX="227.0" layoutY="182.0" text="Intentos: ">
@@ -46,7 +46,7 @@
                 <Font size="17.0" />
             </font>
         </Label>
-        <Label fx:id="labelWin" layoutX="121.0" layoutY="369.0" text=" ">
+        <Label fx:id="labelWin" layoutX="164.0" layoutY="369.0" text=" ">
             <font>
                 <Font size="20.0" />
             </font>
@@ -56,9 +56,9 @@
             <Font name="Segoe UI Semibold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="8.0" layoutY="413.0" text="Pista... Todas las palabras son nombres de animales">
+      <Label layoutX="8.0" layoutY="404.0" prefHeight="29.0" prefWidth="541.0" text="Pista... Todas las palabras son nombres de lenguajes de programación">
          <font>
-            <Font name="Segoe UI Semibold" size="14.0" />
+            <Font name="Segoe UI Semibold" size="16.0" />
          </font>
       </Label>
     </children>
